@@ -1,25 +1,39 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title> Blank </ion-title>
+    <ion-title> Todoist App </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>
-      Start with Ionic
-      <a
-        target="_blank"
-        rel="noopener noreferrer"
-        href="https://ionicframework.com/docs/components"
-        >UI Components</a
-      >
-    </p>
-  </div>
+  <ion-card>
+    <ion-card-header> Create Todo </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-input type="text" [(ngModel)]="newTodo.text"></ion-input>
+        <ion-button slot="end" fill="clear" (click)="add()">
+          <ion-icon name="add" slot="icon-only"></ion-icon>
+        </ion-button>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Priority</ion-label>
+        <ion-select placeholder="Select One" [(ngModel)]="newTodo.priority">
+          <ion-select-option value="1">High</ion-select-option>
+          <ion-select-option value="2">Medium</ion-select-option>
+          <ion-select-option value="3">Low</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-button expand="full" (click)="filterActive = !filterActive">
+    Filter is: {{ filterActive ? 'On' : 'Off'}}
+  </ion-button>
+  <ion-list>
+    <app-todo
+      *ngFor="let todo of todos | priority:filterActive; let i = index; let isEven = even; let isOdd = odd;"
+      [todo]="todo"
+      [ngClass]="{'odd' : isOdd, 'even': isEven}"
+    ></app-todo>
+  </ion-list>
 </ion-content>

@@ -25,3 +25,11 @@
 #container a {
   text-decoration: none;
 }
+
+.odd {
+  --ion-item-background: var(--ion-color-light);
+}
+
+.even {
+  --ion-item-background: var(--ion-color-light-shade);
+}

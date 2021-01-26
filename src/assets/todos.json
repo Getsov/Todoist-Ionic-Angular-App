@@ -1,0 +1,32 @@
+[
+  {
+    "text": "Learn Javascript & Angular basics",
+    "priority": 2,
+    "id": "0001",
+    "done": false
+  },
+  {
+    "text": "Learn Ionic 5",
+    "priority": 1,
+    "id": "1234",
+    "done": false
+  },
+  {
+    "text": "Follow Simon on YT",
+    "priority": 3,
+    "id": "3232",
+    "done": false
+  },
+  {
+    "text": "Plan my next app",
+    "priority": 3,
+    "id": "4435",
+    "done": false
+  },
+  {
+    "text": "Enjoy the day",
+    "priority": 2,
+    "id": "6677",
+    "done": true
+  }
+]
